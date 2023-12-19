@@ -12,21 +12,6 @@ public class UnitOfWork<TEntity>(
 
     public IQueryable<TEntity> Queryable => _dbContext.Set<TEntity>().AsQueryable();
 
-    //public async Task InsertAsync(TEntity entity)
-    //{
-    //    await HandleLocalEventsAsync(entity);
-    //}
-
-    //public async Task UpdateAsync(TEntity entity)
-    //{
-    //    await HandleLocalEventsAsync(entity);
-    //}
-
-    //public async Task DeleteAsync(TEntity entity)
-    //{
-    //    await HandleLocalEventsAsync(entity);
-    //}
-
     private async Task HandleLocalEventsAsync(TEntity entity)
     {
         if (entity is AggregateRoot aggregateRoot)
