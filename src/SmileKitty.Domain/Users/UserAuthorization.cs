@@ -5,14 +5,14 @@ using System.Text.Json.Serialization;
 namespace SmileKitty.Domain.Users;
 
 public class UserAuthorization
-    : AggregateRootBase, ISafeDelete, IEntity, ICreation, IModification, IEnable
+    : AggregateRoot, ISafeDelete, IEntity, ICreation, IModification, IEnable
 {
     public required string Account { get; set; }
     public required string Password { get; set; }
-    public bool IsDeleted { get; private set; } = false;
-    public bool IsEnable { get; private set; } = true;
-    public DateTime CreateTime { get; private set; }
-    public DateTime? ModifyTime { get; private set; }
+    public bool IsDeleted { get; set; } = false;
+    public bool IsEnable { get; set; } = true;
+    public DateTime CreateTime { get; set; }
+    public DateTime? ModifyTime { get; set; }
 
     public Guid? UserId { get; set; }
     public User? User { get; set; }

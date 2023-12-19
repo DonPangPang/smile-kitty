@@ -6,4 +6,18 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Handlers\Users\" />
+    <Folder Include="Exceptions\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SmileKitty.AutoMapper\SmileKitty.AutoMapper.csproj" />
+    <ProjectReference Include="..\SmileKitty.Domain.Shared\SmileKitty.Domain.Shared.csproj" />
+    <ProjectReference Include="..\SmileKitty.Domain\SmileKitty.Domain.csproj" />
+    <ProjectReference Include="..\SmileKitty.EntityFrameworkCore\SmileKitty.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\SmileKitty.EventBus\SmileKitty.EventBus.csproj" />
+    <ProjectReference Include="..\SmileKitty.Infrastructure\SmileKitty.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

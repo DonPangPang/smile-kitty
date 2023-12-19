@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SmileKitty.Domain.Shared\SmileKitty.Domain.Shared.csproj" />
+    <ProjectReference Include="..\SmileKitty.Infrastructure\SmileKitty.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\Dtos\" />
+    <Folder Include="Users\QueryParameters\" />
+  </ItemGroup>
+
 </Project>

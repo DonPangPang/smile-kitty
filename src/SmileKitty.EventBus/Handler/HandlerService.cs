@@ -7,7 +7,7 @@ namespace SmileKitty.EventBus.Handler;
 public class LocalEventBusHostedService(IServiceProvider serviceProvider)
     : BackgroundService
 {
-    private readonly IServiceProvider _serviceProvider = serviceProvider;
+     readonly IServiceProvider _serviceProvider = serviceProvider;
 
     protected override Task ExecuteAsync(CancellationToken stoppingToken)
     {

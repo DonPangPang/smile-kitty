@@ -11,4 +11,13 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SmileKitty.Application.Contracts\SmileKitty.Application.Contracts.csproj" />
+    <ProjectReference Include="..\SmileKitty.Application\SmileKitty.Application.csproj" />
+    <ProjectReference Include="..\SmileKitty.AutoMapper\SmileKitty.AutoMapper.csproj" />
+    <ProjectReference Include="..\SmileKitty.Domain\SmileKitty.Domain.csproj" />
+    <ProjectReference Include="..\SmileKitty.EntityFrameworkCore\SmileKitty.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\SmileKitty.Infrastructure\SmileKitty.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

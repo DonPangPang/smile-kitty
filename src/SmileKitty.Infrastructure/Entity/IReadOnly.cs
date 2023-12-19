@@ -4,3 +4,8 @@ public interface IReadOnly
 {
 
 }
+
+public interface IForbidDeleted
+{
+
+}

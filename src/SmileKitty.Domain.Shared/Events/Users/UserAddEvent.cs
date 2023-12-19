@@ -10,7 +10,7 @@ public class UserAddEvent : IEvent
     public string Email { get; set; } = string.Empty;
     public Gender Gender { get; set; }
     public string? Phone { get; set; }
-    public string? Avatar { get; set; }
+    public Guid? AvatarId { get; set; }
     public string? Description { get; set; }
     public bool IsDeleted { get; set; }
     public DateTime CreateTime { get; set; }

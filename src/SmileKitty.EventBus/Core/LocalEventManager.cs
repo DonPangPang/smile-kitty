@@ -8,9 +8,9 @@ namespace SmileKitty.EventBus.Core;
 public class LocalEventManager<TEvent>(IServiceProvider servicesProvider)
     : ILocalEventManager<TEvent> where TEvent : IEvent
 {
-    private readonly IServiceProvider _servicesProvider = servicesProvider;
+     readonly IServiceProvider _servicesProvider = servicesProvider;
 
-    private readonly Channel<TEvent> _eventChannel = Channel.CreateUnbounded<TEvent>();
+     readonly Channel<TEvent> _eventChannel = Channel.CreateUnbounded<TEvent>();
 
     public CancellationTokenSource Cts { get; } = new CancellationTokenSource();
 
@@ -36,7 +36,7 @@ public class LocalEventManager<TEvent>(IServiceProvider servicesProvider)
         });
     }
 
-    private async Task Handle(TEvent @event)
+     async Task Handle(TEvent @event)
     {
         var handler = _servicesProvider.GetService<IEventHandler<TEvent>>();
 

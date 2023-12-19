@@ -3,7 +3,7 @@ using SmileKitty.Infrastructure.Entity;
 
 namespace SmileKitty.Domain.Cats;
 
-public class CatRescuedRecord : AggregateRootBase, IEntity, ICreation, IModification, ISafeDelete
+public class CatRescuedRecord : AggregateRoot, IEntity, ICreation, IModification, ISafeDelete
 {
     public Guid CatId { get; set; }
     public Cat? Cat { get; set; }
@@ -12,7 +12,7 @@ public class CatRescuedRecord : AggregateRootBase, IEntity, ICreation, IModifica
 
     public string? Address { get; set; }
 
-    public DateTime CreateTime { get; private set; }
-    public DateTime? ModifyTime { get; private set; }
-    public bool IsDeleted { get; private set; }
+    public DateTime CreateTime { get; set; }
+    public DateTime? ModifyTime { get; set; }
+    public bool IsDeleted { get; set; }
 }

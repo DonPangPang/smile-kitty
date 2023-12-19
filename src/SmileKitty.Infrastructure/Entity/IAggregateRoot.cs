@@ -8,7 +8,7 @@ public interface IAggregateRoot : IEntity
     void AddLocalEvent<TEvent>(TEvent eventData) where TEvent : IEvent;
 }
 
-public abstract class AggregateRootBase : EntityBase, IAggregateRoot
+public abstract class AggregateRoot : EntityBase, IAggregateRoot
 {
     public ConcurrentQueue<object> LocalEvents { get; } = new();
 
@@ -17,9 +17,12 @@ public abstract class AggregateRootBase : EntityBase, IAggregateRoot
         LocalEvents.Enqueue(eventData);
     }
 
-    public object? GetLocalEvent()
+    public bool GetLocalEvent(out object? @event)
     {
-        return LocalEvents.TryDequeue(out var eventData) ? eventData : null;
+        LocalEvents.TryDequeue(out var eventData);
+
+        @event = eventData;
+        return @event is not null;
     }
 
     public void ClearLocalEvents()

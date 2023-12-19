@@ -1,16 +1,33 @@
-﻿using SmileKitty.Domain.Users;
+﻿using SmileKitty.Domain.Shared.Events.LoginLogs;
+using SmileKitty.Domain.Users;
 using SmileKitty.Infrastructure.Entity;
 
 namespace SmileKitty.Domain.Logs;
 
-public class LoginLog : AggregateRootBase, IEntity, ICreation
+public class LoginLog : AggregateRoot, IEntity, ICreation
 {
-    public Guid UserAuthorizationId { get; private set; }
-    public UserAuthorization? UserAuthorization { get; private set; }
+    public Guid UserAuthorizationId { get; set; }
+    public UserAuthorization? UserAuthorization { get; set; }
 
     public required string Ip { get; set; }
     public required string IpAddress { get; set; }
     public required string UserAgent { get; set; }
 
-    public DateTime CreateTime { get; private set; }
+    public DateTime CreateTime { get; set; }
+
+
+    public void CreateLoginLog()
+    {
+        CreateTime = DateTime.Now;
+
+        AddLocalEvent(new LoginLogAddEvent()
+        {
+            Id = Id,
+            UserAuthorizationId = UserAuthorizationId,
+            Ip = Ip,
+            IpAddress = IpAddress,
+            UserAgent = UserAgent,
+            CreateTime = CreateTime,
+        });
+    }
 }
