@@ -2,7 +2,7 @@
 
 namespace SmileKitty.Domain.Cats;
 
-public class CatBreed : AggregateRoot, IEntity, ICreation, IModification, ISafeDelete
+public class CatBreed : AggregateRoot, IEntity, ICreationTime, IModificationTime, ISafeDelete
 {
     public required string Name { get; set; }
     public string? Description { get; set; }

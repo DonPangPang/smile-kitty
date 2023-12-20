@@ -4,7 +4,7 @@ using SmileKitty.Infrastructure.Entity;
 
 namespace SmileKitty.Domain.Donations;
 
-public class DonationOutRecord : AggregateRoot, IEntity, ICreation, IReadOnly, IForbidDeleted
+public class DonationOutRecord : AggregateRoot, IEntity, ICreationTime, IReadOnly, IForbidDeleted
 {
     public Guid? UserId { get; set; }
     public User? User { get; set; }

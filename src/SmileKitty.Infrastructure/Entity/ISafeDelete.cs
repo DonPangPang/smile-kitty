@@ -2,5 +2,5 @@
 
 public interface ISafeDelete
 {
-    public bool IsDeleted { get; }
+    public bool IsDeleted { get; set; }
 }

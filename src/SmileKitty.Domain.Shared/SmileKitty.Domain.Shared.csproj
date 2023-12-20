@@ -11,8 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Events\Cats\" />
-    <Folder Include="Events\CatLifes\" />
+    <Folder Include="Events\Cats\CatAdoptionApplys\" />
+    <Folder Include="Events\Cats\Cats\" />
+    <Folder Include="Events\Cats\CatRepatriationApplys\" />
+    <Folder Include="Events\Cats\CatRescuedApplys\" />
+    <Folder Include="GeneralModel\" />
   </ItemGroup>
 
 </Project>

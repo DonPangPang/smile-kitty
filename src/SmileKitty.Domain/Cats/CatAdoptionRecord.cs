@@ -3,10 +3,9 @@ using SmileKitty.Infrastructure.Entity;
 
 namespace SmileKitty.Domain.Cats;
 
-public class CatAdoptionRecord : AggregateRoot, IEntity, ICreation, IModification, ISafeDelete
+public class CatAdoptionRecord : AggregateRoot, IEntity, ICreationTime, IModificationTime, ISafeDelete
 {
     public Guid CatId { get; set; }
-    public Cat? Cat { get; set; }
     public Guid UserId { get; set; }
     public User? User { get; set; }
     public string? Description { get; set; }
@@ -20,6 +19,5 @@ public class CatAdoptionRecord : AggregateRoot, IEntity, ICreation, IModificatio
 
     public Guid HandlerId { get; set; }
     public User? Handler { get; set; }
-
     public ICollection<CatAdoptReturnRecord> CatAdoptReturnRecords { get; set; } = new List<CatAdoptReturnRecord>();
 }

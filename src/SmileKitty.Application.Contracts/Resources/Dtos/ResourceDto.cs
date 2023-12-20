@@ -13,18 +13,24 @@ public abstract class ResourceDto : DtoBase
     public long? Size { get; set; }
 }
 
-public class ImageResourceDto : ResourceDto
+public abstract class ResourceAddDto : IDto
 {
-    public int Width { get; set; }
-    public int Height { get; set; }
+    public required string Name { get; set; }
+    public string? Description { get; set; }
+    public string? Url { get; set; }
+    public string? Path { get; set; }
+    public string? Extension { get; set; }
+    public string? MimeType { get; set; }
+    public long? Size { get; set; }
 }
 
-public class FileResourceDto : ResourceDto
+public abstract class ResourceUpdateDto : DtoBase
 {
-
-}
-
-public class AvatarResourceDto : ImageResourceDto
-{
-
+    public required string Name { get; set; }
+    public string? Description { get; set; }
+    public string? Url { get; set; }
+    public string? Path { get; set; }
+    public string? Extension { get; set; }
+    public string? MimeType { get; set; }
+    public long? Size { get; set; }
 }

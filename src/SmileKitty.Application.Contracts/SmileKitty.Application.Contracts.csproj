@@ -12,8 +12,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Cats\CatAdoptionRecords\" />
+    <Folder Include="Cats\CatAdoptReturnRecords\" />
+    <Folder Include="Cats\CatColors\" />
+    <Folder Include="Cats\CatLifes\" />
+    <Folder Include="Cats\CatPosts\" />
+    <Folder Include="Cats\CatRepatriationRecords\" />
+    <Folder Include="Cats\CatSalvageTypes\" />
+    <Folder Include="Cats\CatTemperaments\" />
+    <Folder Include="Cats\CatAdoptionApplys\" />
+    <Folder Include="Cats\CatRescuedApplys\" />
+    <Folder Include="Donations\Donations\" />
+    <Folder Include="Donations\DonationOutRecords\" />
+    <Folder Include="Logs\PasswordChangeLogs\" />
     <Folder Include="Resources\Dtos\" />
-    <Folder Include="Users\QueryParameters\" />
   </ItemGroup>
 
 </Project>

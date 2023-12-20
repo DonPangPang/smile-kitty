@@ -15,3 +15,9 @@ public interface IOrdering
 {
     string? OrderBy { get; set; }
 }
+
+public interface ITimeRage
+{
+    public DateTime? StartTime { get; set; }
+    public DateTime? EndTime { get; set; }
+}

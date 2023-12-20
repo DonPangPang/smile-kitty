@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using SmileKitty.EventBus.Handler;
-using SmileKitty.Infrastructure.Entity;
+﻿using SmileKitty.Infrastructure.Entity;
 
 namespace SmileKitty.EntityFrameworkCore.UnitOfWorks;
 
@@ -11,39 +9,50 @@ public class UnitOfWork<TEntity>(
     private readonly SmileKittyDbContext _dbContext = dbContext;
 
     public IQueryable<TEntity> Queryable => _dbContext.Set<TEntity>().AsQueryable();
-
-    private async Task HandleLocalEventsAsync(TEntity entity)
+    public async Task InsertAsync(TEntity entity, CancellationToken cancellationToken = default)
     {
-        if (entity is AggregateRoot aggregateRoot)
-        {
-            while (aggregateRoot.GetLocalEvent(out var @event))
-            {
-                if (@event is null) break;
-
-                var handlerType = typeof(IEventHandler<>).MakeGenericType(@event.GetType());
-                var handler = serviceProvider.GetRequiredService(handlerType);
-
-                var handleMethod = handlerType.GetMethod("HandleAsync");
-                var exceptionHandleMethod = handlerType.GetMethod("ExceptionHandle");
-
-                try
-                {
-                    await (Task)handleMethod!.Invoke(handler, new[] { @event })!;
-                }
-                catch (Exception ex)
-                {
-                    exceptionHandleMethod!.Invoke(handler, new[] { ex, @event });
-                }
-            }
-
-            aggregateRoot.ClearLocalEvents();
-        }
+        await _dbContext.AddAsync(entity, cancellationToken);
     }
 
-    public async Task<bool> CommitAsync(TEntity entity, CancellationToken cancellationToken = default)
+    public async Task InsertAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
     {
-        await HandleLocalEventsAsync(entity);
+        await _dbContext.AddRangeAsync(entities, cancellationToken);
+    }
 
+    public async Task UpdateAsync(TEntity entity, CancellationToken cancellationToken = default)
+    {
+        await Task.Run(() =>
+        {
+            _dbContext.Update(entity);
+        }, cancellationToken);
+    }
+
+    public async Task UpdateAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
+    {
+        await Task.Run(() =>
+        {
+            _dbContext.UpdateRange(entities);
+        }, cancellationToken);
+    }
+
+    public async Task DeleteAsync(TEntity entity, CancellationToken cancellationToken = default)
+    {
+        await Task.Run(() =>
+        {
+            _dbContext.Remove(entity);
+        }, cancellationToken);
+    }
+
+    public async Task DeleteAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
+    {
+        await Task.Run(() =>
+        {
+            _dbContext.RemoveRange(entities);
+        }, cancellationToken);
+    }
+
+    public async Task<bool> CommitAsync(CancellationToken cancellationToken = default)
+    {
         return await _dbContext.SaveChangesAsync(cancellationToken) > 0;
     }
 }

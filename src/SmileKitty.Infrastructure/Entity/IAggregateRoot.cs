@@ -6,6 +6,8 @@ namespace SmileKitty.Infrastructure.Entity;
 public interface IAggregateRoot : IEntity
 {
     void AddLocalEvent<TEvent>(TEvent eventData) where TEvent : IEvent;
+    bool GetLocalEvent(out object? @event);
+    void ClearLocalEvents();
 }
 
 public abstract class AggregateRoot : EntityBase, IAggregateRoot

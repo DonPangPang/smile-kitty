@@ -1,14 +1,15 @@
 ﻿using SmileKitty.Domain.Donations;
 using SmileKitty.Domain.Resources;
 using SmileKitty.Domain.Shared.Enums;
-using SmileKitty.Domain.Shared.Events.Cats;
+using SmileKitty.Domain.Shared.GeneralModel;
 using SmileKitty.Infrastructure.Common;
 using SmileKitty.Infrastructure.Entity;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SmileKitty.Domain.Cats;
 
-public class Cat : AggregateRoot, IEntity, ICreation, IModification, ISafeDelete
+public class Cat : EntityBase, IEntity, ICreationTime, IModificationTime, ISafeDelete, IRecorder
 {
     public required string Name { get; set; }
     public Gender Gender { get; set; }
@@ -43,12 +44,6 @@ public class Cat : AggregateRoot, IEntity, ICreation, IModification, ISafeDelete
         set => EyeColorString = value?.ToJson();
     }
 
-    public class EyeColor
-    {
-        public string? Left { get; set; }
-        public string? Right { get; set; }
-    }
-
     public string? DynamicElement { get; set; }
 
     [NotMapped]
@@ -63,66 +58,33 @@ public class Cat : AggregateRoot, IEntity, ICreation, IModification, ISafeDelete
 
     public ICollection<CatPost> Posts { get; set; } = new List<CatPost>();
 
-    public void CreateCat(
-        string name,
-        Gender gender,
-        AvatarResource avatar,
-        float weight,
-        string? description,
-        CatBreed? breed,
-        CatColor? color,
-        EyeColor? eyeColor,
-        Dictionary<string, string>? dynamicElement,
-        List<CatTemperament> catTemperaments)
+    public CatStatus Status { get; set; } = CatStatus.Stray;
+
+    [Timestamp]
+    public byte[]? RowVersion { get; set; }
+
+
+    public void CreateLife()
     {
-        Name = name;
-        Gender = gender;
-        Avatar = avatar;
-        Weight = weight;
-        Description = description;
-        BreedId = breed?.Id;
-        Breed = breed;
-        ColorId = color?.Id;
-        Color = color;
-        EyeColorObject = eyeColor;
-        DynamicElementObject = dynamicElement ?? new Dictionary<string, string>();
-        Temperaments = catTemperaments;
-
-        CreateTime = DateTime.Now;
-
-        AddLocalEvent(new CatAddEvent()
+        CatLife = new CatLife
         {
-            Id = Id,
-            Name = Name,
-            Gender = gender,
-            AvatarId = AvatarId,
-            Weight = Weight,
-            Description = Description,
-            BreedId = BreedId,
-            ColorId = ColorId,
-            EyeColorString = EyeColorString,
-            DynamicElement = DynamicElement,
-            TemperamentIds = Temperaments.Select(x => x.Id).ToList()
-        });
+            Cat = this,
+            CatId = Id
+        };
 
-        Donation = new Donation();
-        Donation.CreateDonation(0, DonationType.Cat, this);
-        DonationId = Donation.Id;
-
-        AddLocalEvent(new CatAddDonationEvent()
-        {
-            Id = Id,
-            DonationId = Donation.Id
-        });
-
-        CatLife = new CatLife();
-        CatLife.CreateCatLift(this);
         CatLifeId = CatLife.Id;
+    }
 
-        AddLocalEvent(new CatAddCatLife()
+    public void CreateDonation()
+    {
+        Donation = new Donation
         {
-            Id = Id,
-            CatLifeId = CatLife.Id
-        });
+            Cat = this,
+            CatId = Id,
+            DonationType = DonationType.Cat,
+            Amount = 0
+        };
+
+        DonationId = Donation.Id;
     }
 }

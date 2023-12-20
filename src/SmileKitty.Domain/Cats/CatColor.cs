@@ -2,7 +2,7 @@
 
 namespace SmileKitty.Domain.Cats;
 
-public class CatColor : AggregateRoot, IEntity, ICreation, IModification, ISafeDelete
+public class CatColor : AggregateRoot, IEntity, ICreationTime, IModificationTime, ISafeDelete
 {
     public required string Name { get; set; }
     public string? Code { get; set; }

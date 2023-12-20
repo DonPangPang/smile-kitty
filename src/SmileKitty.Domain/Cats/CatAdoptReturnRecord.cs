@@ -3,7 +3,7 @@ using SmileKitty.Infrastructure.Entity;
 
 namespace SmileKitty.Domain.Cats;
 
-public class CatAdoptReturnRecord : AggregateRoot, IEntity, ICreation, IModification, ISafeDelete
+public class CatAdoptReturnRecord : AggregateRoot, IEntity, ICreationTime, IModificationTime, ISafeDelete
 {
     public Guid CatId { get; set; }
     public Cat? Cat { get; set; }

@@ -1,6 +1,11 @@
 ﻿namespace SmileKitty.Infrastructure.Entity;
 
+public interface IModificationTime
+{
+    public DateTime? ModifyTime { get; set; }
+}
+
 public interface IModification
 {
-    public DateTime? ModifyTime { get; }
+    public Guid? ModifyUserId { get; set; }
 }

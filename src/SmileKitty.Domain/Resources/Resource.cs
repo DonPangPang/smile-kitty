@@ -3,7 +3,7 @@ using SmileKitty.Infrastructure.Entity;
 
 namespace SmileKitty.Domain.Resources;
 
-public abstract class Resource : AggregateRoot, IEntity, ICreation
+public abstract class Resource : AggregateRoot, IEntity, ICreationTime
 {
     public required string Name { get; set; }
     public string? Description { get; set; }

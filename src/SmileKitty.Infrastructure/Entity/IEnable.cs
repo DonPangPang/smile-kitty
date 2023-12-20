@@ -2,5 +2,5 @@
 
 public interface IEnable
 {
-    public bool IsEnable { get; }
+    public bool IsEnable { get; set; }
 }

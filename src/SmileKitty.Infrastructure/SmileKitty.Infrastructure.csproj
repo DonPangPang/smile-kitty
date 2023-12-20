@@ -7,10 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Common\" />
     <Folder Include="Exceptions\" />
-    <Folder Include="Dto\" />
     <Folder Include="QueryParameter\" />
+    <Folder Include="Consts\" />
   </ItemGroup>
 
   <ItemGroup>

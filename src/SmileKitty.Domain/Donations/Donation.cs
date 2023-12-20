@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SmileKitty.Domain.Donations;
 
-public class Donation : AggregateRoot, IEntity, ICreation, IModification, IForbidDeleted
+public class Donation : AggregateRoot, IEntity, ICreationTime, IModificationTime, IForbidDeleted
 {
     public decimal Amount { get; set; }
     public DonationType DonationType { get; set; }

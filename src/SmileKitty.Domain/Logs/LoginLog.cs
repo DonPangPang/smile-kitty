@@ -4,7 +4,7 @@ using SmileKitty.Infrastructure.Entity;
 
 namespace SmileKitty.Domain.Logs;
 
-public class LoginLog : AggregateRoot, IEntity, ICreation
+public class LoginLog : AggregateRoot, IEntity, ICreationTime
 {
     public Guid UserAuthorizationId { get; set; }
     public UserAuthorization? UserAuthorization { get; set; }
