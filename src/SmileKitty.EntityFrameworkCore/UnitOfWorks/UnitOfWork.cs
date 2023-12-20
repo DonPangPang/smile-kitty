@@ -3,8 +3,7 @@
 namespace SmileKitty.EntityFrameworkCore.UnitOfWorks;
 
 public class UnitOfWork<TEntity>(
-    SmileKittyDbContext dbContext
-    , IServiceProvider serviceProvider) : IUnitOfWork<TEntity> where TEntity : class, IEntity
+    SmileKittyDbContext dbContext) : IUnitOfWork<TEntity> where TEntity : class, IEntity
 {
     private readonly SmileKittyDbContext _dbContext = dbContext;
 

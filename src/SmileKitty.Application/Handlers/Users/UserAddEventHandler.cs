@@ -1,5 +1,4 @@
-﻿using SmileKitty.AutoMapper;
-using SmileKitty.Domain.Shared.Events.Users;
+﻿using SmileKitty.Domain.Shared.Events.Users;
 using SmileKitty.Domain.Users;
 using SmileKitty.EntityFrameworkCore;
 using SmileKitty.EventBus.Handler;

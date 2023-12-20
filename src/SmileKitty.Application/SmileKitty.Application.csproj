@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SmileKitty.AutoMapper\SmileKitty.AutoMapper.csproj" />
     <ProjectReference Include="..\SmileKitty.Domain.Shared\SmileKitty.Domain.Shared.csproj" />
     <ProjectReference Include="..\SmileKitty.Domain\SmileKitty.Domain.csproj" />
     <ProjectReference Include="..\SmileKitty.EntityFrameworkCore\SmileKitty.EntityFrameworkCore.csproj" />
