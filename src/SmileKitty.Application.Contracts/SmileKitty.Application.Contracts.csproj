@@ -25,7 +25,6 @@
     <Folder Include="Donations\Donations\" />
     <Folder Include="Donations\DonationOutRecords\" />
     <Folder Include="Logs\PasswordChangeLogs\" />
-    <Folder Include="Resources\Dtos\" />
   </ItemGroup>
 
 </Project>

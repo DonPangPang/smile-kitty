@@ -3,7 +3,7 @@ using SmileKitty.Infrastructure.Entity;
 
 namespace SmileKitty.Domain.Logs;
 
-public class PasswordChangeLog : AggregateRoot, IEntity, ICreationTime
+public class PasswordChangeLog : EntityBase, IEntity, ICreationTime
 {
     public Guid UserAuthorizationId { get; set; }
     public UserAuthorization? UserAuthorization { get; set; }

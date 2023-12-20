@@ -32,7 +32,7 @@ public class UserAuthorizationController(IUnitOfWork<UserAuthorization> unitOfWo
         throw new SmileKittyNotSupportException();
     }
 
-    [HttpGet]
+    [HttpGet("change-password")]
     public async Task<IActionResult> ChangePassword(UserAuthorizationUpdateDto updateDto)
     {
         var userAuthorization = await _unitOfWork.Queryable.FirstOrDefaultAsync(x => x.Id == updateDto.Id);

@@ -16,32 +16,4 @@ public class DonationOutRecord : AggregateRoot, IEntity, ICreationTime, IReadOnl
 
     public DateTime CreateTime { get; set; }
     public bool IsDeleted { get; set; }
-
-    public void CreateDonationOutRecord(Donation donation, decimal amount, User? user = null, string? description = null)
-    {
-        UserId = user?.Id;
-        User = user;
-        DonationId = donation.Id;
-        Description = description;
-        Amount = amount;
-
-        CreateTime = DateTime.Now;
-
-        AddLocalEvent(new DonationOutRecordAddEvent()
-        {
-            Id = Id,
-            DonationId = DonationId,
-            UserId = UserId,
-            Description = Description,
-            Amount = Amount,
-            CreateTime = CreateTime,
-        });
-
-        AddLocalEvent(new DonationReduceAmountEvent()
-        {
-            Id = DonationId,
-            Amount = Amount,
-            Version = donation.Version,
-        });
-    }
 }

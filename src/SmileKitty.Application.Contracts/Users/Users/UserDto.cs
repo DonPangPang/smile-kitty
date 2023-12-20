@@ -1,4 +1,4 @@
-﻿using SmileKitty.Application.Contracts.Resources.Dtos;
+﻿using SmileKitty.Application.Contracts.Resources;
 using SmileKitty.Domain.Shared.Enums;
 using SmileKitty.Infrastructure.Dto;
 

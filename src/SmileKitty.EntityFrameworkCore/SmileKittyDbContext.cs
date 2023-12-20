@@ -59,6 +59,7 @@ public class SmileKittyDbContext(DbContextOptions<SmileKittyDbContext> options, 
                 await Set<HistoryLog>().AddAsync(new HistoryLog()
                 {
                     LinkId = entityEntry.Entity.Id,
+                    Module = entityEntry.Entity.GetType().Name,
                     Data = recorder.ToJson().Compress(),
                     CreateTime = DateTime.Now
                 }, cancellationToken);

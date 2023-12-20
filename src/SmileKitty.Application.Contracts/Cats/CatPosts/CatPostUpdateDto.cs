@@ -1,4 +1,4 @@
-﻿using SmileKitty.Application.Contracts.Resources.Dtos;
+﻿using SmileKitty.Application.Contracts.Resources;
 using SmileKitty.Infrastructure.Dto;
 
 namespace SmileKitty.Application.Contracts.Cats.CatPosts;

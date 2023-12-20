@@ -19,9 +19,9 @@ public abstract class CrudApiControllerBase<TEntity, TQueryParameter, TDto, TAdd
     (IUnitOfWork<TEntity> unitOfWork) : ApiControllerBase
     where TEntity : class, IEntity
     where TQueryParameter : IQueryParameter
-    where TDto : class, IDto
-    where TAddDto : class, IDto
-    where TUpdateDto : class, IDto
+    where TDto : DtoBase
+    where TAddDto : IDto
+    where TUpdateDto : DtoBase
 {
     [HttpGet]
     public abstract Task<IActionResult> Get([FromQuery] TQueryParameter parameter);
@@ -78,9 +78,9 @@ public abstract class CrudeApiControllerBase<TEntity, TQueryParameter, TDto, TAd
     : CrudApiControllerBase<TEntity, TQueryParameter, TDto, TAddDto, TUpdateDto>(unitOfWork)
     where TEntity : class, IEntity, IEnable
     where TQueryParameter : IQueryParameter
-    where TDto : class, IDto
-    where TAddDto : class, IDto
-    where TUpdateDto : class, IDto
+    where TDto : DtoBase
+    where TAddDto : IDto
+    where TUpdateDto : DtoBase
 {
     private readonly IUnitOfWork<TEntity> _unitOfWork = unitOfWork;
 

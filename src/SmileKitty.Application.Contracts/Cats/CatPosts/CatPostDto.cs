@@ -1,5 +1,5 @@
 ﻿using SmileKitty.Application.Contracts.Cats.Cats;
-using SmileKitty.Application.Contracts.Resources.Dtos;
+using SmileKitty.Application.Contracts.Resources;
 using SmileKitty.Application.Contracts.Users.Users;
 using SmileKitty.Infrastructure.Dto;
 

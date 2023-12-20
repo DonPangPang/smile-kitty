@@ -1,6 +1,6 @@
 ﻿using SmileKitty.Infrastructure.Dto;
 
-namespace SmileKitty.Application.Contracts.Resources.Dtos;
+namespace SmileKitty.Application.Contracts.Resources;
 
 public abstract class ResourceDto : DtoBase
 {

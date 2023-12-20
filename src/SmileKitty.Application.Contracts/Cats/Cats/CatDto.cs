@@ -1,7 +1,7 @@
 ﻿using SmileKitty.Application.Contracts.Cats.CatBreeds;
 using SmileKitty.Application.Contracts.Cats.CatColors;
 using SmileKitty.Application.Contracts.Cats.CatTemperaments;
-using SmileKitty.Application.Contracts.Resources.Dtos;
+using SmileKitty.Application.Contracts.Resources;
 using SmileKitty.Domain.Shared.Enums;
 using SmileKitty.Domain.Shared.GeneralModel;
 using SmileKitty.Infrastructure.Dto;

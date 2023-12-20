@@ -20,4 +20,8 @@
     <ProjectReference Include="..\SmileKitty.Infrastructure\SmileKitty.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\Resources\" />
+  </ItemGroup>
+
 </Project>

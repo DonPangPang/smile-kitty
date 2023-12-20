@@ -1,4 +1,4 @@
-﻿namespace SmileKitty.Application.Contracts.Resources.Dtos;
+﻿namespace SmileKitty.Application.Contracts.Resources;
 
 public class ImageResourceDto : ResourceDto
 {
