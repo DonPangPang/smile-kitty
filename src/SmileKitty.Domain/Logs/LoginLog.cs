@@ -1,5 +1,4 @@
-﻿using SmileKitty.Domain.Shared.Events.LoginLogs;
-using SmileKitty.Domain.Users;
+﻿using SmileKitty.Domain.Users;
 using SmileKitty.Infrastructure.Entity;
 
 namespace SmileKitty.Domain.Logs;

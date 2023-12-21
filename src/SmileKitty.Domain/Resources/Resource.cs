@@ -1,5 +1,4 @@
-﻿using SmileKitty.Domain.Shared.Events.FileResources;
-using SmileKitty.Domain.Users;
+﻿using SmileKitty.Domain.Users;
 using SmileKitty.Infrastructure.Entity;
 
 namespace SmileKitty.Domain.Resources;

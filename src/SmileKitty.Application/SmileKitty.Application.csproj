@@ -7,8 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Handlers\Users\" />
     <Folder Include="Exceptions\" />
+    <Folder Include="Handlers\Cats\Cats\" />
+    <Folder Include="Handlers\Cats\CatAdoptionApplys\" />
+    <Folder Include="Handlers\Donations\DonationInRecords\" />
+    <Folder Include="Handlers\Donations\DonationOutRecords\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IP2Region.Net" Version="2.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,5 +1,5 @@
 ﻿using SmileKitty.Domain.Shared.Enums;
-using SmileKitty.Domain.Shared.Events.DonationOutRecords;
+using SmileKitty.Domain.Shared.Events.Donations.DonationOutRecords;
 using SmileKitty.Domain.Users;
 using SmileKitty.Infrastructure.Entity;
 
@@ -30,7 +30,7 @@ public class CatSalvage : AggregateRoot, IEntity, ICreationTime, IModificationTi
             return;
         }
 
-        AddLocalEvent(new DonationOutRecordAddByCatIdEvent()
+        AddLocalEvent(new DonationOutRecordAddEvent()
         {
             CatId = Channel == CatSalvageTypeChannel.PrivateAccount ? CatId : null,
             Amount = Amount,

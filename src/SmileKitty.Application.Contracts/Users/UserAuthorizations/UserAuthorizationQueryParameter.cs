@@ -7,7 +7,7 @@ public class UserAuthorizationQueryParameter : IQueryParameter, IPaging, IOrderi
     public string? Account { get; set; }
     public DateTime CreateTime { get; private set; }
 
-    public int PageIndex { get; set; }
-    public int PageSize { get; set; }
+    public int? PageIndex { get; set; }
+    public int? PageSize { get; set; }
     public string? OrderBy { get; set; }
 }

@@ -8,5 +8,5 @@ public class CatRescuedApplyAddRescuedRecordEvent : IEvent
     public Guid UserId { get; set; }
     public Guid HandlerId { get; set; }
     public string? Description { get; set; }
-    public string? RescuedAddress { get; set; }
+    public required string RescuedAddress { get; set; }
 }

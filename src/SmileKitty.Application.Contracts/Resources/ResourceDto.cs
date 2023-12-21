@@ -48,8 +48,8 @@ public class ResourceQueryParameter : IQueryParameter, IPaging, IOrdering, ITime
     public string? Extension { get; set; }
     public string? MimeType { get; set; }
     public Guid? CreationUserId { get; set; }
-    public int PageIndex { get; set; }
-    public int PageSize { get; set; }
+    public int? PageIndex { get; set; }
+    public int? PageSize { get; set; }
     public string? OrderBy { get; set; }
     public DateTime? StartTime { get; set; }
     public DateTime? EndTime { get; set; }

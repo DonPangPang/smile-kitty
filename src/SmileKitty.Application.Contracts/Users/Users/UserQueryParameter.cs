@@ -14,7 +14,7 @@ public class UserQueryParameter : IQueryParameter, IPaging, IOrdering
 
     public Guid UserAuthorizationId { get; set; }
 
-    public int PageIndex { get; set; }
-    public int PageSize { get; set; }
+    public int? PageIndex { get; set; }
+    public int? PageSize { get; set; }
     public string? OrderBy { get; set; }
 }

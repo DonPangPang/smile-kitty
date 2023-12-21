@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using IP2Region.Net.Abstractions;
+using Microsoft.Extensions.DependencyInjection;
 using SmileKitty.Application.Exceptions;
 using SmileKitty.EventBus.Event;
 using SmileKitty.EventBus.Extensions;
@@ -20,5 +21,7 @@ public static class SmileKittyApplicationExtensions
             var handlerType = handlerTypes.FirstOrDefault(x => x.GetInterfaces().Any(y => y.GetGenericArguments().Any(z => z == eventType)));
             services.AddEventHandler(handlerType ?? throw new HandlerNotFoundException($"@handler = {eventType.Name}HandlerNotFound, @event = {eventType.Name}"), eventType);
         }
+
+        services.AddScoped<ISearcher>();
     }
 }

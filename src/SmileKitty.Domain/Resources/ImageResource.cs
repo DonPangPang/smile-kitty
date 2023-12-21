@@ -1,6 +1,4 @@
-﻿using SmileKitty.Domain.Shared.Events.FileResources;
-
-namespace SmileKitty.Domain.Resources;
+﻿namespace SmileKitty.Domain.Resources;
 
 public class ImageResource : Resource
 {

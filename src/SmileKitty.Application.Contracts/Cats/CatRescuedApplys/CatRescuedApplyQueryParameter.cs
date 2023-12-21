@@ -11,8 +11,8 @@ public class CatRescuedApplyQueryParameter : IQueryParameter, IPaging, IOrdering
     public FlowResult? Result { get; set; }
 
     public string? OrderBy { get; set; }
-    public int PageIndex { get; set; }
-    public int PageSize { get; set; }
+    public int? PageIndex { get; set; }
+    public int? PageSize { get; set; }
     public DateTime? StartTime { get; set; }
     public DateTime? EndTime { get; set; }
 }

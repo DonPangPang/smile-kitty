@@ -23,8 +23,8 @@ public class CatQueryParameter : IQueryParameter, IPaging, IOrdering, ITimeRage
     public EyeColor? EyeColorObject { get; set; }
 
     public Guid[]? Temperaments { get; set; }
-    public int PageIndex { get; set; }
-    public int PageSize { get; set; }
+    public int? PageIndex { get; set; }
+    public int? PageSize { get; set; }
     public string? OrderBy { get; set; }
     public DateTime? StartTime { get; set; }
     public DateTime? EndTime { get; set; }

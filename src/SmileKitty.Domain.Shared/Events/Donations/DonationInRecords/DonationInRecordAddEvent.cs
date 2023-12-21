@@ -1,10 +1,9 @@
 ﻿using SmileKitty.EventBus.Event;
 
-namespace SmileKitty.Domain.Shared.Events.DonationInRecords;
+namespace SmileKitty.Domain.Shared.Events.Donations.DonationInRecords;
 
 public class DonationInRecordAddEvent : IEvent
 {
-    public Guid Id { get; set; }
     public Guid DonationId { get; set; }
     public Guid? UserId { get; set; }
     public string? Description { get; set; }
