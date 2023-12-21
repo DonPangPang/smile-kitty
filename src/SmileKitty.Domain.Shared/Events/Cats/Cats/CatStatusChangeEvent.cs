@@ -5,6 +5,6 @@ namespace SmileKitty.Domain.Shared.Events.Cats.Cats;
 
 public class CatStatusChangeEvent : IEvent
 {
-    public Guid CatId { get; set; }
-    public CatStatus Status { get; set; }
+    public required Guid CatId { get; set; }
+    public required CatStatus Status { get; set; }
 }
