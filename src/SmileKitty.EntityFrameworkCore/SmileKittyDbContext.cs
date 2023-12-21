@@ -14,6 +14,14 @@ public class SmileKittyDbContext(DbContextOptions<SmileKittyDbContext> options, 
 {
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+
+        var entityTypes = typeof(IEntity).Assembly.GetTypes().Where(x => x.IsAssignableTo(typeof(IEntity)) && x is { IsAbstract: false, IsInterface: false });
+        foreach (var entityType in entityTypes)
+        {
+            if (modelBuilder.Model.FindEntityType(entityType) is not null) continue;
+            modelBuilder.Model.AddEntityType(entityType);
+        }
+
         base.OnModelCreating(modelBuilder);
     }
 

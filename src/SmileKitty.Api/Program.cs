@@ -1,6 +1,7 @@
-using System.Reflection;
+using SmileKitty.Application;
 using SmileKitty.AutoMapper;
 using SmileKitty.EntityFrameworkCore;
+using SmileKitty.EventBus.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddEntityFrameworkCore();
+builder.Services.AddApplication();
+builder.Services.AddSmileKittyEventBus(opts => { });
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
@@ -23,6 +26,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+await app.InitDatabaseAsync();
 app.UseAutoMapper();
 
 app.UseHttpsRedirection();

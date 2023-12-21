@@ -46,7 +46,7 @@ public class CatRepatriationApplyController(IUnitOfWork<CatRepatriationApply> un
         if (entity is null) return NotFound();
 
         // TODO: CurrentUser
-        entity.HandleFlow(dto.Result, null);
+        //entity.HandleFlow(dto.Result, null);
 
         await _unitOfWork.UpdateAsync(entity);
         await _unitOfWork.CommitAsync();

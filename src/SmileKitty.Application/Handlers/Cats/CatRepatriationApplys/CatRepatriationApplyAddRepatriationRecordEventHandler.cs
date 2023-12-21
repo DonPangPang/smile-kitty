@@ -23,6 +23,6 @@ public class CatRepatriationApplyAddRepatriationRecordEventHandler(IUnitOfWork<C
 
     public void ExceptionHandle(Exception ex, CatRepatriationApplyAddRepatriationRecordEvent @event)
     {
-        throw new HandlerException($"{nameof(CatRepatriationApplyAddRepatriationRecordEventHandler)}", ex);)
+        throw new HandlerException($"{nameof(CatRepatriationApplyAddRepatriationRecordEventHandler)}", ex);
     }
 }

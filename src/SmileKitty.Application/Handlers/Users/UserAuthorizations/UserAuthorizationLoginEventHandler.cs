@@ -1,4 +1,4 @@
-﻿using IP2Region.Net.Abstractions;
+﻿using IP2Region.Net.XDB;
 using Microsoft.AspNetCore.Http;
 using SmileKitty.Application.Exceptions;
 using SmileKitty.Domain.Logs;
